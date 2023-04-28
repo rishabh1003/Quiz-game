@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Quiz</title>
+</head>
+
+<body>
+    <h1>Quiz</h1>
+    <% for (let i=0; i < questions.length; i++) { %>
+        <h2>Question <%= i + 1 %>
+        </h2>
+        <p>
+            <%= questions[i].text %>
+        </p>
+        <form action="/quiz/<%= i %>" method="get">
+            <% for (let j=0; j < questions[i].options.length; j++) { %>
+                <input type="radio" name="answer<%= i %>" value="<%= j %>">
+                <%= questions[i].options[j] %><br>
+                    <% } %>
+                        <% } %>
+                            <button type="submit">Submit</button>
+        </form>
+</body>
+
+</html>
